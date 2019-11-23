@@ -2,7 +2,7 @@ require('dotenv').config();
 const Discord = require('discord.js');
 const bot = new Discord.Client();
 const TOKEN = process.env.TOKEN;
-const PREFIX = process.env.PREFIX;
+const PREFIX = process.env.PREFIX ? process.env.PREFIX : '!';
 bot.commands = new Discord.Collection();
 const botCommands = require('./modules/commands');
 const logger = require('./modules/logger');
