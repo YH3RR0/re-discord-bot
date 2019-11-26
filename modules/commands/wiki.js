@@ -5,35 +5,32 @@ module.exports = {
 	name: "wiki",
 	description: "Search the gbf.wiki page",
 	execute(msg, args) {
-		const query = args.map(s => s.charAt(0).toUpperCase() + s.substring(1)).join(" ");
+		const query = args.join(" ");
 
-		axios.get("https://gbf.wiki/api.php", {
+		logger.info(`wiki query: ${query}`);
+
+		axios.get("https://gbf.wiki/index.php", {
 			params: {
-				action: "query",
-				format: "json",
-				formatversion: 2,
-				prop: "info",
-				inprop: "url",
-				titles: query
+				search: query
+			},
+			maxRedirects: 0,
+			validateStatus: status => {
+				return status >= 200 && status < 400;
 			}
+		}).then (response => {
+			logger.info("wiki response status", {...response.status});
+			logger.info("wiki response headers", {...response.headers});
+
+			if (response.status === 302) {
+				msg.channel.send(response.headers.location)
+					.catch (logger.error);
+
+				return;
+			}
+
+			msg.channel.send("I couldn't find that page.")
+				.catch (logger.error);
 		})
-			.then(response => {
-				logger.info(response.data);
-				if (response.data.query.pages[0].missing) {
-					msg.channel.send("I couldn't find that page.")
-						.catch(error => {
-							logger.error(error);
-						});
-				}
-				else {
-					msg.channel.send(response.data.query.pages[0].fullurl)
-						.catch(error => {
-							logger.error(error);
-						});
-				}
-			})
-			.catch(error => {
-				logger.error(error);
-			});
+		.catch (logger.error);
 	},
 };

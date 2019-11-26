@@ -1,3 +1,6 @@
 module.exports = {
-    Wiki: require('./wiki'),
+    Wiki: require("./wiki"),
+    GW: require("./gwsearch"),
+    BotAvatar: require("./botavatar"),
+    BotName: require("./botname")
 };
