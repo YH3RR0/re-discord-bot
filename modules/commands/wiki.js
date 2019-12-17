@@ -31,6 +31,11 @@ module.exports = {
 			msg.channel.send("I couldn't find that page.")
 				.catch (logger.error);
 		})
-		.catch (logger.error);
+		.catch (error => {
+			logger.error(error);
+
+			msg.channel.send("There was an error accessing the wiki.")
+				.catch (logger.error);
+		});
 	},
 };
