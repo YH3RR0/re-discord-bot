@@ -1,5 +1,5 @@
 require("dotenv").config();
-const OWNER = process.env.OWNER ? process.env.OWNER ? "";
+const OWNER = process.env.OWNER ? process.env.OWNER : "";
 const logger = require("../logger");
 
 module.exports = {
