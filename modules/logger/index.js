@@ -21,4 +21,7 @@ const logger = winston.createLogger({
     ]
 });
 
+logger.info.bind(logger);
+logger.error.bind(logger);
+
 module.exports = logger;

@@ -21,19 +21,13 @@ module.exports = {
 				logger.info(response.data);
 				if (response.data.query.pages[0].missing) {
 					msg.channel.send("I couldn't find that page.")
-						.catch(error => {
-							logger.error(error);
-						});
+						.catch(logger.error);
 				}
 				else {
 					msg.channel.send(response.data.query.pages[0].fullurl)
-						.catch(error => {
-							logger.error(error);
-						});
+						.catch(logger.error);
 				}
 			})
-			.catch(error => {
-				logger.error(error);
-			});
+			.catch(logger.error);
 	},
 };

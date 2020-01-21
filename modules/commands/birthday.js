@@ -7,7 +7,7 @@ module.exports = {
 	execute(msg, args) {
         if (args.length === 0) {
             msg.channel.send(`Happy Birthday ${msg.author}!`)
-            .catch (logger.error);
+            .catch(logger.error);
 
             return;
         }
@@ -16,7 +16,7 @@ module.exports = {
 
         if (msg.guild.member(user)) {
             msg.channel.send(`Happy Birthday ${args[0]}!`)
-            .catch (logger.error);
+            .catch(logger.error);
         }
 	},
 };

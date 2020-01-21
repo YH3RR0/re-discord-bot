@@ -15,7 +15,7 @@ module.exports = {
               logger.info(`New bot username: ${user.username}`);
 
               msg.channel.send(`My new username is ${user.username}`)
-                  .catch (logger.error);
+                  .catch(logger.error);
           })
           .catch(logger.error);
 	},

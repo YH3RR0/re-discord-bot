@@ -23,19 +23,19 @@ module.exports = {
 
 			if (response.status === 302) {
 				msg.channel.send(response.headers.location)
-					.catch (logger.error);
+					.catch(logger.error);
 
 				return;
 			}
 
 			msg.channel.send("I couldn't find that page.")
-				.catch (logger.error);
+				.catch(logger.error);
 		})
 		.catch (error => {
 			logger.error(error);
 
 			msg.channel.send("There was an error accessing the wiki.")
-				.catch (logger.error);
+				.catch(logger.error);
 		});
 	},
 };

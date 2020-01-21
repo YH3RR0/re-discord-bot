@@ -19,7 +19,7 @@ module.exports = {
                 msg.channel.send("My new avatar is:", {
                     file: msg.attachments.first().url
                 })
-                .catch (logger.error);
+                .catch(logger.error);
             })
             .catch(logger.error);
 	},

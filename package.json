@@ -1,17 +1,18 @@
 {
-  "name": "re-discord-bot",
-  "version": "1.0.0",
-  "description": "Discord bot for Re Community",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "author": "Peter Cho",
-  "license": "ISC",
-  "dependencies": {
-    "axios": "^0.19.0",
-    "discord.js": "^11.5.1",
-    "dotenv": "^8.2.0",
-    "winston": "^3.2.1"
-  }
+    "name": "re-discord-bot",
+    "version": "1.0.0",
+    "description": "Discord bot for Re Community",
+    "main": "index.js",
+    "scripts": {
+        "start": "node index.js",
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "author": "Peter Cho",
+    "license": "ISC",
+    "dependencies": {
+        "axios": "^0.19.0",
+        "discord.js": "^11.5.1",
+        "dotenv": "^8.2.0",
+        "winston": "^3.2.1"
+    }
 }
