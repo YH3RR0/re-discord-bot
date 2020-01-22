@@ -11,12 +11,12 @@ module.exports = {
         }
 
         msg.client.user.setUsername(args.join(" "))
-          .then(user => {
-              logger.info(`New bot username: ${user.username}`);
+            .then(user => {
+                logger.info(`New bot username: ${user.username}`);
 
-              msg.channel.send(`My new username is ${user.username}`)
-                  .catch(logger.error);
-          })
-          .catch(logger.error);
+                msg.channel.send(`My new username is ${user.username}`)
+                    .catch(logger.error);
+            })
+            .catch(logger.error);
 	},
 };

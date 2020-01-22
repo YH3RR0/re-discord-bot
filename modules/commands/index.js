@@ -2,6 +2,6 @@ module.exports = {
     Birthday: require("./birthday"),
     BotAvatar: require("./botAvatar"),
     BotName: require("./botName"),
-    GW: require("./gwSearch"),
+    GW: require("./gw"),
     Wiki: require("./wiki"),
 };
