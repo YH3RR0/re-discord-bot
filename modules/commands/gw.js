@@ -1,5 +1,6 @@
 const axios = require("axios");
 const logger = require("../logger");
+const numeral = require("numeral");
 
 module.exports = {
 	name: "gw",
@@ -16,7 +17,7 @@ module.exports = {
 			response.data.result.forEach(crew => {
 				const crewData = {
 					name: crew.data[0].name,
-					value: "[Points: " + crew.data[0].points + "](http://game.granbluefantasy.jp/#guild/detail/" + crew.id  + ")",
+					value: "[Points: " + numeral(crew.data[0].points).format("0,0") + "](http://game.granbluefantasy.jp/#guild/detail/" + crew.id  + ")",
 					inline: true
 				};
 
